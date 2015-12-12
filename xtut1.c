@@ -5,11 +5,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
+
 
 int main(int argc, char ** argv){
 	int screen_num, width, height,originx,originy;
-	int quality = atoi(argv[1]);
+	int quality = 1;
+	long position=0;
+	long double resolution=4.0000;
+
+	if(argc==4)
+	{quality = atoi(argv[3]);}
+	
+	if (argc >= 3) {
+		resolution = (long double) atof(argv[2]);
+
+	}
+	if (argc>=2)
+	{
+		position = atoi(argv[1]);
+	}
+
 	unsigned long background, border;
 	Window win;
 	XEvent ev;
